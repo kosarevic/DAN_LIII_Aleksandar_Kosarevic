@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadatak_1.Model
 {
-    class Manager : User
+    public class Manager : User
     {
 
         public int Floor { get; set; }
@@ -15,13 +15,6 @@ namespace Zadatak_1.Model
 
         public Manager()
         {
-        }
-
-        public Manager(int floor, int experience, string educationLevel) : base()
-        {
-            Floor = floor;
-            Experience = experience;
-            EducationLevel = educationLevel;
         }
     }
 }

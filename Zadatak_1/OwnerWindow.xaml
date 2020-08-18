@@ -9,8 +9,8 @@
         Title="ModifyManagerWindow" Height="450" Width="800">
     <Grid>
         <TextBlock TextAlignment="Center" Text="Create Personnel" Foreground="#282828" Margin="298,20,302,360" HorizontalAlignment="Center" FontSize="25" Width="192"/>
-        <Button Content="Create Employe" HorizontalAlignment="Left" Margin="273,190,0,0" VerticalAlignment="Top" Width="100" Click="Add_Employe"/>
-        <Button Content="Create Manager" HorizontalAlignment="Left" Margin="415,190,0,0" VerticalAlignment="Top" Width="100" Click="Add_Manager"/>
+        <Button Content="Create Employe" HorizontalAlignment="Left" Margin="422,188,0,0" VerticalAlignment="Top" Width="100" Click="Add_Employe"/>
+        <Button Content="Create Manager" HorizontalAlignment="Left" Margin="267,188,0,0" VerticalAlignment="Top" Width="100" Click="Add_Manager"/>
         <Button Content="Logout" HorizontalAlignment="Left" Margin="357,307,0,0" VerticalAlignment="Top" Width="75" Click="Logout"/>
     </Grid>
 </Window>

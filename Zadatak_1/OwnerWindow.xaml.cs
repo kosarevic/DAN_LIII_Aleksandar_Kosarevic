@@ -26,17 +26,23 @@ namespace Zadatak_1
 
         private void Add_Employe(object sender, RoutedEventArgs e)
         {
-
+            AddEmployeWindow window = new AddEmployeWindow();
+            window.Show();
+            Close();
         }
 
         private void Add_Manager(object sender, RoutedEventArgs e)
         {
-
+            AddManagerWindow window = new AddManagerWindow();
+            window.Show();
+            Close();
         }
 
         private void Logout(object sender, RoutedEventArgs e)
         {
-
+            LoginScreen window = new LoginScreen();
+            window.Show();
+            Close();
         }
     }
 }

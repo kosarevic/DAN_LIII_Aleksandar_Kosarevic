@@ -3,10 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Zadatak_1"
         mc:Ignorable="d"
         Title="AddManagerWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="93,89,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="162,88,0,0" TextWrapping="Wrap" Text="{Binding Manager.FirstName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,137,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="162,137,0,0" TextWrapping="Wrap" Text="{Binding Manager.LastName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="568,92,0,0" TextWrapping="Wrap" Text="Floor" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="609,88,0,0" TextWrapping="Wrap" Text="{Binding Manager.Floor, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="543,183,0,0" TextWrapping="Wrap" Text="Education" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CmbGender" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="609,181,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Educations}" SelectedItem="{Binding Manager.EducationLevel, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="342,138,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="404,133,0,0" TextWrapping="Wrap" Text="{Binding Manager.Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="346,185,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="404,182,0,0" TextWrapping="Wrap" Text="{Binding Manager.Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="81,182,0,0" TextWrapping="Wrap" Text="Date of birth" VerticalAlignment="Top"/>
+        <DatePicker x:Name="date" HorizontalAlignment="Left" Margin="162,179,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Manager.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,92,0,0" TextWrapping="Wrap" Text="Mail" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="404,88,0,0" TextWrapping="Wrap" Text="{Binding Manager.Mail, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button Click="Btn_Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="291,323,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Click="Btn_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="433,323,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label FontSize="25" Content="Add Manager" HorizontalAlignment="Left" Margin="307,18,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="543,137,0,0" TextWrapping="Wrap" Text="Experience" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="609,133,0,0" TextWrapping="Wrap" Text="{Binding Manager.Experience, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

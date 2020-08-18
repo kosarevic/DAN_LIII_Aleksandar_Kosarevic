@@ -37,7 +37,7 @@ namespace Zadatak_1
                 List<string> text = new List<string>();
                 Owner owner = new Owner();
 
-                StreamReader sr = new StreamReader(@"..\\..\Files\OwnerCredentials.txt");
+                StreamReader sr = new StreamReader(@"..\\..\Files\OwnerAccess.txt");
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {

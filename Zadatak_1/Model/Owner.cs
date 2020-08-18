@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadatak_1.Model
 {
-    class Owner : User
+    public class Owner : User
     {
 
         public Owner() : base()

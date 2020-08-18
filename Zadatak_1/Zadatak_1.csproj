@@ -108,7 +108,7 @@
     <Folder Include="Validations\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Files\OwnerCredentials.txt" />
+    <Resource Include="Files\OwnerAccess.txt" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AddEmployeWindow.xaml">

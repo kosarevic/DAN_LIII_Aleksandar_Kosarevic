@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadatak_1.Model
 {
-    class Employe : User
+    public class Employe : User
     {
 
         public int Floor { get; set; }
@@ -14,18 +14,10 @@ namespace Zadatak_1.Model
         public string Citizenship { get; set; }
         public string Duty { get; set; }
         public double Salary { get; set; }
+        public int ManagerID { get; set; }
 
         public Employe()
         {
-        }
-
-        public Employe(int floor, string gender, string citizenship, string duty, double salary) : base()
-        {
-            Floor = floor;
-            Gender = gender;
-            Citizenship = citizenship;
-            Duty = duty;
-            Salary = salary;
         }
     }
 }

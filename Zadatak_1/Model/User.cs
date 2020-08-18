@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadatak_1.Model
 {
-    class User
+    public class User
     {
 
         public string FirstName { get; set; }
@@ -18,16 +18,6 @@ namespace Zadatak_1.Model
 
         public User()
         {
-        }
-
-        public User(string firstName, string lastName, DateTime dateOfBirth, string mail, string username, string password)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            DateOfBirth = dateOfBirth;
-            Mail = mail;
-            Username = username;
-            Password = password;
         }
     }
 }
