@@ -72,6 +72,9 @@
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validations\AddEmployeValidation.cs" />
+    <Compile Include="Validations\AddManagerValidation.cs" />
+    <Compile Include="Validations\OwnerValidation.cs" />
     <Compile Include="ViewModel\ManagerViewModel.cs" />
     <Compile Include="ViewModel\OwnerViewModel.cs" />
   </ItemGroup>
@@ -111,9 +114,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Files\OwnerAccess.txt" />
   </ItemGroup>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zadatak_1.Validations;
 using Zadatak_1.ViewModel;
 
 namespace Zadatak_1
@@ -37,10 +38,13 @@ namespace Zadatak_1
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
             ovm.Manager.DateOfBirth = DateTime.Parse(date.ToString());
-            ovm.AddManager();
-            OwnerWindow window = new OwnerWindow();
-            window.Show();
-            Close();
+            if (AddManagerValidation.Validate(ovm.Manager))
+            {
+                ovm.AddManager();
+                OwnerWindow window = new OwnerWindow();
+                window.Show();
+                Close(); 
+            }
         }
 
         private void Btn_Cancel(object sender, RoutedEventArgs e)

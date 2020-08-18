@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zadatak_1.Validations;
 
 namespace Zadatak_1
 {
@@ -26,9 +27,12 @@ namespace Zadatak_1
 
         private void Add_Employe(object sender, RoutedEventArgs e)
         {
-            AddEmployeWindow window = new AddEmployeWindow();
-            window.Show();
-            Close();
+            if (OwnerValidation.Validate())
+            {
+                AddEmployeWindow window = new AddEmployeWindow();
+                window.Show();
+                Close(); 
+            }
         }
 
         private void Add_Manager(object sender, RoutedEventArgs e)
