@@ -15,7 +15,7 @@ create table tblManger
 ManagerID int primary key IDENTITY(1,1),
 Firstname varchar(100),
 Lastname varchar(100),
-DateOfBirth DateTime,
+DateOfBirth Date,
 Mail varchar(100),
 Username varchar(100),
 Password varchar(100),
@@ -29,7 +29,7 @@ create table tblEmploye
 EmployeID int primary key IDENTITY(1,1),
 Firstname varchar(100),
 Lastname varchar(100),
-DateOfBirth DateTime,
+DateOfBirth Date,
 Mail varchar(100),
 Username varchar(100),
 Password varchar(100),
@@ -40,5 +40,3 @@ Duty varchar(100),
 Salary decimal,
 ManagerID int foreign key references tblManger(ManagerID) not null
 )
-
-select ManagerID from tblManger where floor = 1;

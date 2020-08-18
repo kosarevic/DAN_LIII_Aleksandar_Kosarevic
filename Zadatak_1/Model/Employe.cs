@@ -14,6 +14,7 @@ namespace Zadatak_1.Model
         public string Citizenship { get; set; }
         public string Duty { get; set; }
         public double Salary { get; set; }
+        public bool EditSalary { get; set; }
         public int ManagerID { get; set; }
 
         public Employe()

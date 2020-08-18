@@ -29,47 +29,84 @@ namespace Zadatak_1
             InitializeComponent();
         }
 
+        public static Manager CurrentManager = new Manager();
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            List<string> text = new List<string>();
+            Owner owner = new Owner();
+
+            StreamReader sr = new StreamReader(@"..\\..\Files\OwnerAccess.txt");
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                text.Add(line);
+            }
+            sr.Close();
+
+            if (text.Any())
+            {
+                foreach (string t in text)
+                {
+                    string[] temp = t.Split(' ');
+                    owner.Username = temp[1];
+                    owner.Password = temp[3];
+                }
+            }
+
+            if (txtUsername.Text == owner.Username && txtPassword.Password == owner.Password)
+            {
+                OwnerWindow window = new OwnerWindow();
+                window.Show();
+                Close();
+                return;
+            }
+
+            CurrentManager = null;
+
+            //Inserted value in password field is being converted into enrypted verson for latter matching with database version.
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(txtPassword.Password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-            try
-            {
-                List<string> text = new List<string>();
-                Owner owner = new Owner();
+            //User is extracted from the database matching inserted paramaters Username and Password.
+            SqlCommand query = new SqlCommand("SELECT * FROM tblManger WHERE Username=@Username AND Password=@Password", sqlCon);
+            query.CommandType = CommandType.Text;
+            query.Parameters.AddWithValue("@Username", txtUsername.Text);
+            query.Parameters.AddWithValue("@Password", hash);
+            sqlCon.Open();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
 
-                StreamReader sr = new StreamReader(@"..\\..\Files\OwnerAccess.txt");
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    text.Add(line);
-                }
-                sr.Close();
-
-                if (text.Any())
-                {
-                    foreach (string t in text)
-                    {
-                        string[] temp = t.Split(' ');
-                        owner.Username = temp[1];
-                        owner.Password = temp[3];
-                    }
-                }
-
-                if (txtUsername.Text == owner.Username && txtPassword.Password == owner.Password)
-                {
-                    OwnerWindow window = new OwnerWindow();
-                    window.Show();
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
+            foreach (DataRow row in dataTable.Rows)
             {
-                MessageBox.Show(ex.Message);
+                CurrentManager = new Manager
+                {
+                    Id = int.Parse(row[0].ToString()),
+                    FirstName = row[1].ToString(),
+                    LastName = row[2].ToString(),
+                    DateOfBirth = DateTime.Parse(row[3].ToString()),
+                    Mail = row[4].ToString(),
+                    Username = row[5].ToString(),
+                    Password = row[6].ToString(),
+                    Floor = int.Parse(row[7].ToString()),
+                    Experience = int.Parse(row[8].ToString()),
+                    EducationLevel = row[9].ToString()
+                };
             }
-            finally
+            sqlCon.Close();
+
+            if (CurrentManager != null)
             {
-                sqlCon.Close();
+                ManagerWindow window = new ManagerWindow();
+                window.Show();
+                Close();
+                return;
             }
+
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Incorrect login credentials, please try again.", "Notification");
         }
     }
 }

@@ -110,7 +110,7 @@ namespace Zadatak_1.ViewModel
                 var cmd = new SqlCommand(@"insert into tblManger values (@FirstName, @LastName, @DateOfBirth, @Mail, @Username, @Password, @Floor, @Experience, @EducationLevel);", conn);
                 cmd.Parameters.AddWithValue("@FirstName", manager.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", manager.LastName);
-                cmd.Parameters.AddWithValue("@DateOfBirth", manager.DateOfBirth);
+                cmd.Parameters.AddWithValue("@DateOfBirth", manager.DateOfBirth.ToShortDateString());
                 cmd.Parameters.AddWithValue("@Mail", manager.Mail);
                 cmd.Parameters.AddWithValue("@Username", manager.Username);
                 cmd.Parameters.AddWithValue("@Password", hash);
@@ -152,7 +152,7 @@ namespace Zadatak_1.ViewModel
                 var cmd = new SqlCommand(@"insert into tblEmploye values (@FirstName, @LastName, @DateOfBirth, @Mail, @Username, @Password, @Floor, @Gender, @Citizenship, @Duty, @Salary, @ManagerID);", conn);
                 cmd.Parameters.AddWithValue("@FirstName", employe.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", employe.LastName);
-                cmd.Parameters.AddWithValue("@DateOfBirth", employe.DateOfBirth);
+                cmd.Parameters.AddWithValue("@DateOfBirth", employe.DateOfBirth.ToShortDateString());
                 cmd.Parameters.AddWithValue("@Mail", employe.Mail);
                 cmd.Parameters.AddWithValue("@Username", employe.Username);
                 cmd.Parameters.AddWithValue("@Password", hash);

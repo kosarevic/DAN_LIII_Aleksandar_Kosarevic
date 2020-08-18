@@ -62,10 +62,17 @@
     <Compile Include="AddManagerWindow.xaml.cs">
       <DependentUpon>AddManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllEmployesSalaryWindow.xaml.cs">
+      <DependentUpon>AllEmployesSalaryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ManagerViewModel.cs" />
     <Compile Include="ViewModel\OwnerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -119,7 +126,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AllEmployesSalaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
